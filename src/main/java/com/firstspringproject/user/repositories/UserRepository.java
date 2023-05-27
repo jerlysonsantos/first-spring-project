@@ -1,5 +1,9 @@
 package com.firstspringproject.user.repositories;
 
-public class UserRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import com.firstspringproject.user.entities.User;
+
+public interface UserRepository extends CrudRepository<User, Integer> {
   
 }

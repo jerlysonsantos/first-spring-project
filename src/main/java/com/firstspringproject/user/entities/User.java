@@ -1,11 +1,18 @@
 package com.firstspringproject.user.entities;
 
-import com.firstspringproject.user.interfaces.UserInterface;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
-public class User implements UserInterface{
+@Entity
+public class User {
+  @Id
+  @GeneratedValue(strategy=GenerationType.AUTO)
+  private int id;
+  
   private String name;
   private String email;
-  private int id;
   
   public User() { }
 
@@ -25,6 +32,15 @@ public class User implements UserInterface{
 
   public int getId() {
     return this.id;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
   }
 
 }
