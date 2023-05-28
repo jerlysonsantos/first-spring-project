@@ -8,20 +8,22 @@ import jakarta.persistence.Id;
 @Entity
 public class User {
   @Id
-  @GeneratedValue(strategy=GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.AUTO)
   private int id;
-  
+
   private String name;
+
   private String email;
-  
-  public User() { }
+
+  public User() {
+  }
 
   public User(String name, String email, int id) throws Exception {
     this.name = name;
     this.email = email;
     this.id = id;
   }
-  
+
   public String getName() {
     return this.name;
   }
@@ -33,7 +35,6 @@ public class User {
   public int getId() {
     return this.id;
   }
-
 
   public void setName(String name) {
     this.name = name;
