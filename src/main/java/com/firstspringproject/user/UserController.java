@@ -15,7 +15,7 @@ import com.firstspringproject.user.entities.User;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping(value = "/users")
+@RequestMapping(value = "/api/users")
 public class UserController {
 
   @Autowired
