@@ -21,9 +21,10 @@ public class UserService {
 
   public ResponseTransfer insert(UserDto userDto) {
 
-    ModelMapper modelMapper = new ModelMapper();
+    User user = new User();
 
-    User user = modelMapper.map(userDto, User.class);
+    user.setEmail(userDto.email());
+    user.setName(userDto.name());
 
     userRepository.save(user);
 

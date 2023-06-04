@@ -6,6 +6,5 @@ services:
     container_name: spring-database
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=spring-database
     ports:
       - 3306:3306
