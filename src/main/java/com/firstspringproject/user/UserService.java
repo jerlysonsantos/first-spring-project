@@ -1,5 +1,6 @@
 package com.firstspringproject.user;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,9 +21,9 @@ public class UserService {
 
   public ResponseTransfer insert(UserDto userDto) {
 
-    User user = new User();
-    user.setEmail(userDto.getEmail());
-    user.setName(userDto.getName());
+    ModelMapper modelMapper = new ModelMapper();
+
+    User user = modelMapper.map(userDto, User.class);
 
     userRepository.save(user);
 

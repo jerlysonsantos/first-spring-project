@@ -1,5 +1,6 @@
 package com.firstspringproject.user.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -8,11 +9,14 @@ import jakarta.persistence.Id;
 @Entity
 public class User {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "id", unique = true)
   private int id;
 
+  @Column(name = "name")
   private String name;
 
+  @Column(name = "email", unique = true)
   private String email;
 
   public User() {
