@@ -1,9 +1,8 @@
 version: "3.4"
 
 services:
-  database:
+  spring-database:
     image: mysql
-    container_name: spring-database
     environment:
       - MYSQL_ROOT_PASSWORD=root
     ports:

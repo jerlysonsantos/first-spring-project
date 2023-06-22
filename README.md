@@ -1,6 +1,6 @@
 ### run migrations
 
-`mvn clean flyway:migrate -Dflyway.configFiles=src/main/resources/flywayConfig.conf`
+`mvn clean flyway:migrate -Dflyway.configFiles=.env`
 
 ### run application
 

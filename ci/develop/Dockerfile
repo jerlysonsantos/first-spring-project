@@ -23,6 +23,8 @@ COPY src ./src
 
 RUN mvn package -DskipTests
 
+RUN mvn clean flyway:migrate -url= -user= -password= -schemas=
+
 # Stage 3: Run the Java Spring app
 FROM openjdk:17-alpine
 

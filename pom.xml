@@ -86,6 +86,7 @@
         <groupId>org.flywaydb</groupId>
         <artifactId>flyway-maven-plugin</artifactId>
         <version>8.4.4</version> 
+         
       </plugin>
 		</plugins>
 	</build>
