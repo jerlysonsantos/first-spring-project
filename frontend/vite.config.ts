@@ -1,15 +1,12 @@
-/// <reference types="vitest" />
-
-import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import vike from "vike/plugin";
+import { UserConfig } from "vite";
 
-export default defineConfig({
-  plugins: [react()],
-  test: {
-    globals: true,
-    environment: "jsdom",
-  },
-  build: {
-    outDir: "../src/main/resources/static",
-  },
-});
+const config: UserConfig = {
+  plugins: [react(), vike()],
+  // build: {
+  //   outDir: "../src/main/resources/static",
+  // },
+};
+
+export default config;
