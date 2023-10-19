@@ -1,4 +1,4 @@
-FROM node:16.15.1 as react-builder
+FROM node:16.15.1 as angular-builder
 
 WORKDIR /app
 
@@ -19,24 +19,16 @@ RUN mvn dependency:go-offline -B
 
 COPY src ./src
 
-RUN mvn package -DskipTests
+COPY --from=angular-builder /app/dist/frontend /app/src/main/resources/static
+
+RUN mvn clean package -DskipTests
 
 # RUN mvn clean flyway:migrate -url= -user= -password= -schemas=
 
-FROM node:16.15.1
-RUN apt-get update \
-     && apt-get install default-jre -y \
-     && apt-get install default-jdk -y
-
+FROM openjdk:17-alpine
 
 COPY --from=java-builder /app/target/*.jar app.jar
-COPY --from=react-builder /app/ /app/frontend/
 
-COPY ./ci/production/nginx.conf /etc/nginx/nginx.conf
-COPY ./ci/production/entrypoint.sh /entrypoint.sh
+EXPOSE 8080
 
-RUN chmod +x /entrypoint.sh
-
-EXPOSE 80
-
-ENTRYPOINT ["/entrypoint.sh"]
+CMD ["java", "-jar", "app.jar"]

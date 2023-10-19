@@ -25,7 +25,7 @@ public class UserService {
     user.setEmail(userDto.email());
     user.setName(userDto.name());
 
-    userRepository.save(user);
+    this.userRepository.save(user);
 
     return new ResponseTransfer("Usuário criado");
   }
